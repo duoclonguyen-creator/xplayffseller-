@@ -10,94 +10,201 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:#090909;
-    color:#39ff14;
+    background:#050505;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    overflow:hidden;
+    position:relative;
+}
+
+/* Background Animation */
+body::before{
+    content:'';
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(57,255,20,.03) 0px,
+        rgba(57,255,20,.03) 1px,
+        transparent 1px,
+        transparent 40px
+    );
+    animation:bgmove 10s linear infinite;
+}
+
+@keyframes bgmove{
+    from{transform:translateY(0);}
+    to{transform:translateY(40px);}
+}
+
+/* Scanner Effect */
+.scan{
+    position:absolute;
+    width:100%;
+    height:120px;
+    background:linear-gradient(
+        transparent,
+        rgba(57,255,20,.15),
+        transparent
+    );
+    animation:scan 5s linear infinite;
+}
+
+@keyframes scan{
+    from{top:-120px;}
+    to{top:100%;}
 }
 
 .container{
+    position:relative;
+    z-index:2;
     width:90%;
-    max-width:400px;
+    max-width:420px;
     text-align:center;
 }
 
+/* Logo */
 .logo{
-    width:220px;
-    height:220px;
-    border:3px solid #39ff14;
-    border-radius:50%;
+    width:250px;
+    height:250px;
     margin:auto;
+    border-radius:50%;
+    border:3px solid #39ff14;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    box-shadow:0 0 20px #39ff14;
+    box-shadow:
+    0 0 20px #39ff14,
+    0 0 50px rgba(57,255,20,.5);
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 20px #39ff14;
+    }
+    50%{
+        box-shadow:0 0 45px #39ff14;
+    }
+    100%{
+        box-shadow:0 0 20px #39ff14;
+    }
 }
 
 .logo h1{
-    font-size:55px;
+    color:#39ff14;
+    font-size:60px;
+    font-weight:900;
     letter-spacing:3px;
+    text-shadow:0 0 20px #39ff14;
 }
 
 .logo p{
-    font-size:22px;
+    color:#ffffff;
+    font-size:20px;
     letter-spacing:8px;
 }
 
+/* Slogan */
+.slogan{
+    margin-top:18px;
+    color:#39ff14;
+    font-size:18px;
+    font-weight:700;
+    text-shadow:0 0 10px #39ff14;
+}
+
+/* Service Box */
+.services{
+    margin-top:15px;
+    margin-bottom:20px;
+    padding:14px;
+    border-radius:15px;
+    border:1px solid rgba(57,255,20,.4);
+    background:rgba(57,255,20,.05);
+    backdrop-filter:blur(8px);
+    color:#d9d9d9;
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* Buttons */
 .btn{
     display:block;
     text-decoration:none;
-    color:white;
-    margin-top:20px;
+    margin-top:15px;
     padding:16px;
+    border-radius:15px;
     border:1px solid #39ff14;
-    border-radius:12px;
-    background:#111;
+    background:rgba(255,255,255,.03);
+    color:#ffffff;
+    font-size:17px;
+    font-weight:700;
     transition:.3s;
-    font-size:18px;
 }
 
 .btn:hover{
+    transform:translateY(-3px);
     background:#39ff14;
-    color:black;
-    box-shadow:0 0 20px #39ff14;
+    color:#000;
+    box-shadow:0 0 25px #39ff14;
 }
 
+/* Footer */
 .footer{
     margin-top:20px;
-    color:#777;
-    font-size:13px;
+    color:#39ff14;
+    opacity:.8;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
+<div class="scan"></div>
+
 <div class="container">
 
-<div class="logo">
-<h1>XPLAY</h1>
-<p>SELLER</p>
-</div>
+    <div class="logo">
+        <h1>XPLAY</h1>
+        <p>SELLER</p>
+    </div>
 
-<a class="btn" href="https://t.me/xplayxff1207">
-📨 Telegram
-</a>
+    <div class="slogan">
+        Uy Tín Làm Nên Thương Hiệu
+    </div>
 
-<a class="btn" href="https://zalo.me/0389384497">
-💬 Zalo
-</a>
+    <div class="services">
+        ⚡ PRX ADR<br>
+        🎯 Menu No Root (Drip, Pato)<br>
+        🔥 Menu Root (Kmods, Ngotran)
+    </div>
 
-<div class="footer">
-XPLAY SELLER
-</div>
+    <a class="btn" href="https://t.me/xplayxff1207">
+        📨 TELEGRAM
+    </a>
+
+    <a class="btn" href="https://zalo.me/0389384497">
+        💬 ZALO
+    </a>
+
+    <a class="btn" href="#">
+        🏦 MBBANK: 0389384497
+    </a>
+
+    <div class="footer">
+        @xplayxff1207
+    </div>
 
 </div>
 
